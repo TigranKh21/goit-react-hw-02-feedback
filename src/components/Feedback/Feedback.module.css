@@ -1,0 +1,65 @@
+.feedback {
+  font-family: 'Permanent Marker';
+  max-width: 500px;
+  margin-left: calc(50% - 250px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  border: transparent;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px rgb(10, 120, 237);
+  font-family: 'Permanent Marker';
+  font-size: 20px;
+  transition: color 1s;
+  transition: background-color 1s;
+}
+
+button:hover {
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+
+button.good:hover {
+  box-shadow: 0px 0px 20px 0px rgb(43, 251, 1);
+}
+
+button.neutral:hover {
+  box-shadow: 0px 0px 20px 0px rgb(222, 168, 4);
+}
+
+button.bad:hover {
+  box-shadow: 0px 0px 20px 0px rgb(242, 101, 101);
+}
+
+h2 {
+  font-size: 32px;
+  color: rgb(39, 119, 240);
+  text-shadow: 3px 3px 0px rgb(222, 168, 4);
+}
+
+.statItem {
+  font-size: 24px;
+}
+
+.good {
+  color: green;
+}
+
+.neutral {
+  color: rgb(255, 187, 0);
+}
+
+.bad {
+  color: rgb(128, 4, 4);
+}
