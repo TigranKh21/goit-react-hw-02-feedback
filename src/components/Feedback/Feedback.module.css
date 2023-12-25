@@ -57,3 +57,6 @@ button.bad:hover {
   justify-content: center;
   align-items: center;
 }
+.noStatMessage {
+  font-size: 28px;
+}
