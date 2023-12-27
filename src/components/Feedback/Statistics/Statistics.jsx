@@ -1,8 +1,6 @@
 import css from '../Feedback.module.css';
 
 export const Statistics = ({ state, total, positivePercentage }) => {
-  const feedbackSum = total();
-  const percentage = positivePercentage();
   return (
     <>
       <div>
@@ -13,8 +11,8 @@ export const Statistics = ({ state, total, positivePercentage }) => {
           </li>
           <li className={`${css.statItem} ${css.bad}`}>Bad: {state.bad}</li>
         </ul>
-        <h2>Total: {feedbackSum}</h2>
-        <h2>Positive feedback: {percentage}%</h2>
+        <h2>Total: {total}</h2>
+        <h2>Positive feedback: {positivePercentage}%</h2>
       </div>
     </>
   );

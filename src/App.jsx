@@ -11,24 +11,14 @@ export class App extends Component {
     bad: 0,
   };
 
-  options = [
-    { id: 'good', title: 'Good' },
-    { id: 'neutral', title: 'Neutral' },
-    { id: 'bad', title: 'Bad' },
-  ];
-
   onLeaveFeedback = id => {
-    this.setState(
-      prevState => ({ [id]: prevState[id] + 1 }),
-      () => {
-        this.countTotalFeedback();
-        this.countPositiveFeedbackPercentage();
-      }
-    );
+    this.setState(prevState => ({ [id]: prevState[id] + 1 }));
   };
 
   countTotalFeedback = () => {
-    const total = this.state.good + this.state.neutral + this.state.bad;
+    const total = Object.values(this.state).reduce((acc, value) => {
+      return acc + value;
+    }, 0);
     return total;
   };
 
@@ -36,23 +26,26 @@ export class App extends Component {
     const positivePercentage = Math.round(
       (this.state.good / this.countTotalFeedback()) * 100
     );
+
     return positivePercentage;
   };
   render() {
+    const total = this.countTotalFeedback();
+    const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
       <div>
         <Section title="Feedback">
           <FeedbackOptions
             onLeaveFeedback={this.onLeaveFeedback}
-            options={this.options}
+            options={Object.keys(this.state)}
           />
         </Section>
 
         <Section title="Statistics">
           {this.countTotalFeedback() !== 0 ? (
             <Statistics
-              total={this.countTotalFeedback}
-              positivePercentage={this.countPositiveFeedbackPercentage}
+              total={total}
+              positivePercentage={positivePercentage}
               state={this.state}
             />
           ) : (
